@@ -6,7 +6,10 @@ EXPECTED_ERROR = {
 
 REGISTER_REQUEST = {
         "email":    "eve.holt@reqres.in",
-        "password": "pistol"
+        "password": "pistol",
+        "first_name": "Eve",
+        "last_name": "Holt",
+        "avatar": "Unknown"
         }
 
 INVALID_REGISTER_REQUEST = {

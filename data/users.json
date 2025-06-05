@@ -1,0 +1,101 @@
+{
+  "1": {
+    "id": 1,
+    "email": "george.bluth@reqres.in",
+    "first_name": "George",
+    "last_name": "Bluth",
+    "avatar": "https://reqres.in/img/faces/1-image.jpg",
+    "token": "8a7d807c35322cb211897bbef35a57045fe6d511ebe6339284cfcf08f7c31913",
+    "password": "?]n0b0E)v?#+"
+  },
+  "2": {
+    "id": 2,
+    "email": "janet.weaver@reqres.in",
+    "first_name": "Janet",
+    "last_name": "Weaver",
+    "avatar": "https://reqres.in/img/faces/2-image.jpg",
+    "token": "fa589d5264ffd90e5c55d196614a6e844a8b520a4d4b6ffac8b07c7d211aa241",
+    "password": "*_Wijm@@N6xP"
+  },
+  "3": {
+    "id": 3,
+    "email": "emma.wong@reqres.in",
+    "first_name": "Emma",
+    "last_name": "Wong",
+    "avatar": "https://reqres.in/img/faces/3-image.jpg",
+    "token": "68a17644624cc416f62732fe8e71fee73a889ad20c5873085de8792b9f44496b",
+    "password": "'];m>0KJ>f[&"
+  },
+  "5": {
+    "id": 5,
+    "email": "charles.morris@reqres.in",
+    "first_name": "Charles",
+    "last_name": "Morris",
+    "avatar": "https://reqres.in/img/faces/5-image.jpg",
+    "token": "ce03680e306aef6b1ffb684f998538c41c1ced24092585a834e78bfffab9fab6",
+    "password": "OF*i!1Yr6AS)"
+  },
+  "6": {
+    "id": 6,
+    "email": "tracey.ramos@reqres.in",
+    "first_name": "Tracey",
+    "last_name": "Ramos",
+    "avatar": "https://reqres.in/img/faces/6-image.jpg",
+    "token": "46ef1593e11d376f930c4e8adc063bcb13423fe4effb0386855ae12c1d0fdfb7",
+    "password": "R0k;ls!BX9o_"
+  },
+  "7": {
+    "id": 7,
+    "email": "michael.lawson@reqres.in",
+    "first_name": "Michael",
+    "last_name": "Lawson",
+    "avatar": "https://reqres.in/img/faces/7-image.jpg",
+    "token": "429c4de80dbbc101a2923c5e5a87a8d9ba9cdee98d06ff3df08ec7b5a92e7bdb",
+    "password": "[Wl~yb]_dw7f"
+  },
+  "8": {
+    "id": 8,
+    "email": "lindsay.ferguson@reqres.in",
+    "first_name": "Lindsay",
+    "last_name": "Ferguson",
+    "avatar": "https://reqres.in/img/faces/8-image.jpg",
+    "token": "bf51bd2cdf44068f6b817127dff0a15b3dad9e9ec457078f6b1259862aee794d",
+    "password": "@1fp\\H{c[R98"
+  },
+  "9": {
+    "id": 9,
+    "email": "tobias.funke@reqres.in",
+    "first_name": "Tobias",
+    "last_name": "Funke",
+    "avatar": "https://reqres.in/img/faces/9-image.jpg",
+    "token": "0f60ee8978653ad16a37be6eaa5f375bf99156e9c71d3d117fa84f3a1899cccd",
+    "password": "or1i%@d}Q*a3"
+  },
+  "10": {
+    "id": 10,
+    "email": "byron.fields@reqres.in",
+    "first_name": "Byron",
+    "last_name": "Fields",
+    "avatar": "https://reqres.in/img/faces/10-image.jpg",
+    "token": "f096afff3d832c9296fa19cc0ea741b0ef85134ea298d634fd317108b5737284",
+    "password": "vZ#XG^ZdMHg1"
+  },
+  "11": {
+    "id": 11,
+    "email": "george.edwards@reqres.in",
+    "first_name": "George",
+    "last_name": "Edwards",
+    "avatar": "https://reqres.in/img/faces/11-image.jpg",
+    "token": "0c436e316da043e0a053e4083c99ce7595016d10ccec875391df7fae6bf94cb8",
+    "password": "!<@=}\\R1+fV3"
+  },
+  "12": {
+    "id": 12,
+    "email": "rachel.howell@reqres.in",
+    "first_name": "Rachel",
+    "last_name": "Howell",
+    "avatar": "https://reqres.in/img/faces/12-image.jpg",
+    "token": "c4ec46a6df5f172e751f9d62dde147b519e346668f6a65b6766e5276fa5cbb87",
+    "password": "R83[?-L;Bc--"
+  }
+}
