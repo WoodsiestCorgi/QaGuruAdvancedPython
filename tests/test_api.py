@@ -1,17 +1,28 @@
+import json
 from http import HTTPStatus
 
 import pytest
 import requests
 
-from micro_service.models.service_models import User
+from micro_service.models.User import User
+
+
+@pytest.fixture()
+def fill_test_data(app_url):
+    with open('../data/users.json', 'r', encoding='utf-8') as f:
+        test_data_users = json.load(f)
+
+    for user in test_data_users.values():
+        requests.post(f'{app_url}/api/users', json=user)
 
 
 def test_status(app_url):
     response = requests.get(f"{app_url}/api/status")
     assert response.status_code == HTTPStatus.OK
+    assert response.json() == {"database": True}
 
 
-def test_get_users(app_url):
+def test_get_users(app_url, fill_test_data):
     response = requests.get(f"{app_url}/api/users")
 
     assert response.status_code == HTTPStatus.OK
@@ -73,7 +84,13 @@ def test_get_user_by_id(app_url, user_id):
     assert user["id"] == user_id
 
 
-@pytest.mark.parametrize("user_id", [-1, 100, "adaasd"])
+@pytest.mark.parametrize("user_id", [-1, "adaasd"])
 def test_get_user_invalid(app_url, user_id):
+    response = requests.get(f"{app_url}/api/users/{user_id}")
+    assert response.status_code == HTTPStatus.UNPROCESSABLE_ENTITY
+
+
+@pytest.mark.parametrize("user_id", [100, 200])
+def test_get_user_missing_id(app_url, user_id):
     response = requests.get(f"{app_url}/api/users/{user_id}")
     assert response.status_code == HTTPStatus.NOT_FOUND

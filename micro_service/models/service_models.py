@@ -1,22 +1,15 @@
 # Pydantic модели для микросервиса
 
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 
+
+class AppStatus(BaseModel):
+    database: bool
 
 class RegisterRequest(BaseModel):
     email: str
     password: str
 
-
 class RegisterResponse(BaseModel):
     id: int
     token: str
-
-class User(BaseModel):
-    id: int
-    token: str
-    email: EmailStr
-    first_name: str
-    last_name: str
-    password: str
-    avatar: str
