@@ -20,3 +20,14 @@ def check_availability() -> bool:
     except Exception as e:
         print(e)
         return False
+
+
+def reset_user_sequence():
+    """Сбрасывает sequence для таблицы user, чтобы избежать конфликтов с явно указанными id"""
+    try:
+        with Session(db_engine) as session:
+            # Устанавливаем sequence на максимальный существующий id + 1
+            session.execute(text("SELECT setval(pg_get_serial_sequence('user', 'id'), COALESCE((SELECT MAX(id) FROM \"user\"), 1), true)"))
+            session.commit()
+    except Exception as e:
+        print(f"Error resetting sequence: {e}")

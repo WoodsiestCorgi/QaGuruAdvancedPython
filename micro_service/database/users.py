@@ -4,7 +4,7 @@ from fastapi import HTTPException
 from sqlmodel import select, Session
 
 from .engine import db_engine
-from ..models.User import User
+from ..models.User import User, UserUpdate
 
 
 def get_user(user_id: int) -> User | None:
@@ -28,7 +28,6 @@ def delete_user(user_id: int) -> None:
     with Session(db_engine) as session:
         session.delete(get_user(user_id))
         session.commit()
-        session.refresh(get_user(user_id))
 
 def update_user(user_id: int, user: User) -> User:
     with Session(db_engine) as session:
@@ -36,7 +35,7 @@ def update_user(user_id: int, user: User) -> User:
         if not db_user:
             raise HTTPException(status_code=404, detail=f"User id='{user_id}' not found")
 
-        user_data = user.model_dump(exclude_unset=True)
+        user_data = user.model_dump(exclude_unset=True, mode='json')
         db_user.sqlmodel_update(user_data)
 
         session.add(db_user)

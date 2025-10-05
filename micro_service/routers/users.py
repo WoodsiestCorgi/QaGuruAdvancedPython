@@ -32,16 +32,18 @@ def get_user(user_id) -> User:
     return user
 
 @router.post(USERS_URL, status_code=HTTPStatus.CREATED)
-def create_user(user: User) -> User:
-    UserCreate.model_validate(user.model_dump())
+def create_user(user_data: UserCreate) -> User:
+    user_dict = user_data.model_dump(mode='json')
+    user = User(**user_dict)
     return users.create_user(user)
 
 @router.patch(USER_ID_URL, status_code=HTTPStatus.OK)
-def update_user(user_id: int, user: User) -> User:
+def update_user(user_id: int, user: UserUpdate) -> User:
     if user_id < 1:
         raise HTTPException(status_code=HTTPStatus.UNPROCESSABLE_ENTITY, detail="User id must be greater than 0")
 
     UserUpdate.model_validate(user)
+    user = User(**user.model_dump(mode='json'))
     return users.update_user(user_id, user)
 
 @router.delete(USER_ID_URL, status_code=HTTPStatus.OK)

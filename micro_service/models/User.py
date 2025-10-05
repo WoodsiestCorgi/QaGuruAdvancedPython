@@ -3,7 +3,7 @@ from sqlmodel import Field, SQLModel
 
 
 class User(SQLModel, table=True):
-    id: int | None = Field(primary_key=True)
+    id: int | None = Field(default=None, primary_key=True)
     token: str
     email: EmailStr
     first_name: str
@@ -13,7 +13,7 @@ class User(SQLModel, table=True):
 
 
 class UserCreate(BaseModel):
-    id: int | None = Field(primary_key=True)
+    id: int | None = None
     token: str
     email: EmailStr
     first_name: str
@@ -21,7 +21,8 @@ class UserCreate(BaseModel):
     password: str
     avatar: HttpUrl
 
-class UserUpdate(UserCreate):
+class UserUpdate(BaseModel):
+    id: int = None
     token: str | None = None
     email: EmailStr | None = None
     first_name: str | None = None
