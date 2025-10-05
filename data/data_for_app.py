@@ -1,5 +1,6 @@
 """ Данные для приложения """
 
 REGISTER_URL = '/api/register'
-GET_USERS_URL = '/api/users/'
+USERS_URL = '/api/users/'
+USER_ID_URL = '/api/users/{user_id}'
 STATUS_URL = '/api/status/'
