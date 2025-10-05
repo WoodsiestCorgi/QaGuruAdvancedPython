@@ -35,7 +35,7 @@ def update_user(user_id: int, user: User) -> User:
         if not db_user:
             raise HTTPException(status_code=404, detail=f"User id='{user_id}' not found")
 
-        user_data = user.model_dump(exclude_unset=True, mode='json')
+        user_data = user.model_dump(mode='json', exclude_none=True, exclude_unset=True)
         db_user.sqlmodel_update(user_data)
 
         session.add(db_user)
