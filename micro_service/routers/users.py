@@ -3,7 +3,7 @@ from http import HTTPStatus
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi_pagination import Page, Params, paginate
 
-from data.data_for_app import USER_ID_URL, USERS_URL
+from micro_service.data.data_for_app import USER_ID_URL, USERS_URL
 from micro_service.database import users
 from micro_service.models.User import User, UserCreate, UserUpdate
 

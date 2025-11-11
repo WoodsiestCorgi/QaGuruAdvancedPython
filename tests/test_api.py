@@ -58,7 +58,7 @@ def test_get_users_pagination_page_num(app_url, size, pages):
     assert response.status_code == HTTPStatus.OK
 
     users = response.json()
-    assert users['pages'] == pages
+    assert users['pages'] == pages , f"Ожидалось {pages} страниц, а получено {users['pages']}"
 
 
 def test_get_users_pagination_page_data(app_url):
@@ -73,7 +73,7 @@ def test_get_users_pagination_page_data(app_url):
     data_2 = response.json()
 
     for user in data_1['items']:
-        assert user not in data_2['items']
+        assert user not in data_2['items'], "Дублирование данных на разных страницах"
 
 
 @pytest.mark.parametrize("size", [1, 3, 5])
@@ -83,7 +83,7 @@ def test_get_users_pagination_page_size(app_url, size):
 
     users = response.json()
     assert users['size'] == size
-    assert len(users['items']) == size
+    assert len(users['items']) == size, f"Количество записей не соответствует ожидаемому"
 
 
 @pytest.mark.parametrize("user_id", [1, 3, 5, 12])
