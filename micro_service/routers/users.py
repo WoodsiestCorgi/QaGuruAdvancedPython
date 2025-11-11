@@ -1,7 +1,8 @@
 from http import HTTPStatus
 
-from fastapi import APIRouter, Depends, HTTPException
-from fastapi_pagination import Page, Params, paginate
+from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi_pagination import Page as BasePage, paginate, Params
+from fastapi_pagination.customization import CustomizedPage, UseParamsFields
 
 from micro_service.data.data_for_app import USER_ID_URL, USERS_URL
 from micro_service.database import users
@@ -9,14 +10,21 @@ from micro_service.models.User import User, UserCreate, UserUpdate
 
 router = APIRouter()
 
+Page = CustomizedPage[
+    BasePage,
+    UseParamsFields(
+            size=Query(50, ge=0)
+            )
+]
+
 
 @router.get(USERS_URL, response_model=Page[User], status_code=HTTPStatus.OK)
-def get_users(params: Params = Depends()) -> Page[User]:
+async def get_users(params: Params = Depends()) -> Page[User]:
     return paginate(list(users.get_users()), params=params)
 
 
 @router.get(USER_ID_URL, response_model=User, status_code=HTTPStatus.OK)
-def get_user(user_id) -> User:
+async def get_user(user_id) -> User:
     try:
         user_id = int(user_id)
     except ValueError:

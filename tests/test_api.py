@@ -7,7 +7,7 @@ import requests
 from micro_service.models.User import User, UserCreate
 
 
-@pytest.fixture()
+@pytest.fixture(scope='session', autouse=True)
 def fill_test_data(app_url):
     with open('./data/users.json', 'r', encoding='utf-8') as f:
         test_data_users = json.load(f)

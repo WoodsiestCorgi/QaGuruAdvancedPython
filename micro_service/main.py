@@ -2,7 +2,6 @@ from contextlib import asynccontextmanager
 
 import dotenv
 
-
 dotenv.load_dotenv()
 
 import uvicorn
@@ -25,4 +24,4 @@ app.include_router(users.router)
 add_pagination(app)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="localhost", port=8002)
+    uvicorn.run(app, host="127.0.0.1", port=8002)
