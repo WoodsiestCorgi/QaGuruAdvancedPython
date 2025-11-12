@@ -198,7 +198,7 @@ def test_delete_invalid_id_422(users_api, invalid_id):
                                                                  f" {resp.status_code}: {resp.text}")
 
 
-def test_delete_nonexistent_404(app_url):
+def test_delete_nonexistent_404(users_api):
     resp = users_api.delete_user(user_id=999999)
     assert resp.status_code in [HTTPStatus.NOT_FOUND, HTTPStatus.INTERNAL_SERVER_ERROR]
 
@@ -275,7 +275,7 @@ def test_e2e_create_read_update_delete(users_api, build_user_payload):
 
         # 3. Обновление
         update_data = {"first_name": "Updated"}
-        patch_resp = user_id.update_user(user_id=user_id, payload=update_data)
+        patch_resp = users_api.update_user(user_id=user_id, payload=update_data)
         assert patch_resp.status_code == HTTPStatus.OK, \
             f"Не удалось обновить пользователя: {patch_resp.status_code} {patch_resp.text}"
 
