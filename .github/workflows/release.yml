@@ -1,4 +1,4 @@
-name: release.yml
+name: release workflow
 on:
   push:
     branches:

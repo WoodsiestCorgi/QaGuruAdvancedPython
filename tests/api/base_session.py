@@ -9,26 +9,5 @@ class BaseSession(Session):
         if self.base_url is None:
             raise ValueError("base_url is required")
 
-    def post(self, url, *args, **kwargs):
-        url = self.base_url + url
-        return super().post(url, *args, **kwargs)
-
-    def get(self, url, *args, **kwargs):
-        url = self.base_url + url
-        return super().get(url, *args, **kwargs)
-
-    def put(self, url, *args, **kwargs):
-        url = self.base_url + url
-        return super().put(url, *args, **kwargs)
-
-    def delete(self, url, *args, **kwargs):
-        url = self.base_url + url
-        return super().delete(url, *args, **kwargs)
-
-    def patch(self, url, *args, **kwargs):
-        url = self.base_url + url
-        return super().patch(url, *args, **kwargs)
-
     def request(self, method, url, *args, **kwargs):
-        url = self.base_url + url
-        return super().request(method, url, *args, **kwargs)
+        return super().request(method, self.base_url + url, *args, **kwargs)
