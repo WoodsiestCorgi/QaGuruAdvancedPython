@@ -3,7 +3,7 @@ import os
 import dotenv
 import pytest
 
-pytest_plugins = ["sessions_fixtures", "data_fixtures"]
+pytest_plugins = ["fixtures.sessions_fixtures", "fixtures.data_fixtures"]
 
 @pytest.fixture(scope="session", autouse=True)
 def envs():
